@@ -171,7 +171,7 @@
 
       const nodes = [...body.children].filter((el) => {
         if (el.tagName === "P") {
-          const backLink = el.querySelector('a[href="index.html"]');
+          const backLink = el.querySelector('a[href="map-viewer.html"], a[href="index.html"]');
           if (backLink) {
             return false;
           }
@@ -185,7 +185,7 @@
 
       wrapper.querySelectorAll("a").forEach((anchor) => {
         const href = anchor.getAttribute("href") || "";
-        if (href === "index.html") {
+        if (href === "map-viewer.html" || href === "index.html") {
           anchor.setAttribute("href", "#");
           anchor.addEventListener("click", (evt) => {
             evt.preventDefault();

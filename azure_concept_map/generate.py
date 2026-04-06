@@ -367,7 +367,7 @@ for slug, c in concepts.items():
   </style>
 </head>
 <body>
-  <p><a href=\"index.html\">← Back to overview</a></p>
+    <p><a href=\"map-viewer.html\">← Back to overview</a></p>
   <h1>{html.escape(c['title'])}</h1>
   <p class=\"muted\"><strong>Type:</strong> {html.escape(c['type'])}</p>
   <div class=\"card\">
@@ -501,44 +501,15 @@ html_index = f"""<!doctype html>
 <html lang=\"en\">
 <head>
   <meta charset=\"utf-8\">
+  <meta http-equiv=\"refresh\" content=\"0; url=map-viewer.html\">
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-  <title>Azure Concept Map</title>
-    <link rel=\"stylesheet\" href=\"../assets/map-viewer.css\">
-  <style>
-        body {{ margin: 0; line-height: 1.6; }}
-        .list-shell {{ max-width: 1160px; margin: 0 auto; padding: 0 1.25rem 2.2rem; }}
-        .card {{ border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; background: #fff; box-shadow: var(--shadow); }}
-    img {{ max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 12px; }}
-        .card a:not(.btn) {{ color: #0b57d0; }}
-  </style>
+  <title>Redirecting to Main Map</title>
+  <script>
+    window.location.replace(\"map-viewer.html\");
+  </script>
 </head>
 <body>
-    <header class=\"hero\">
-        <div class=\"hero-inner\">
-            <p class=\"eyebrow\">Azure Ecosystem Navigator</p>
-            <h1>Concept List</h1>
-            <p class=\"subtitle\">Browse all concept cards directly, or jump to either map view from the same fixed menu.</p>
-            <nav class=\"site-nav\" aria-label=\"Primary\">
-                <ul class=\"site-menu\">
-                    <li><a class=\"btn\" href=\"map-viewer.html\">Main Map</a></li>
-                    <li><a class=\"btn is-active\" href=\"index.html\" aria-current=\"page\">Concept List</a></li>
-                    <li><a class=\"btn\" href=\"../../azure_security_map_v3/map-viewer.html\">Security Map</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main class=\"list-shell\">
-        <div class=\"card\">
-            <p>This is a starter map for Azure security and hybrid environments. Open the SVG below in a browser or click the concept pages in the list.</p>
-            <p><a href=\"map-viewer.html\">Open interactive map viewer (scroll + modal)</a></p>
-            <p><a href=\"../azure-concepts-clickable.svg\">Open clickable SVG</a></p>
-        </div>
-        <div class=\"card\">
-            <h2>Concept cards</h2>
-            <ul>{cards}</ul>
-        </div>
-    </main>
+  <p>Redirecting to <a href=\"map-viewer.html\">Main Map</a>...</p>
 </body>
 </html>
 """

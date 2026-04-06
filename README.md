@@ -9,11 +9,11 @@ What it does:
 - Shows the full Azure concept map in a horizontally scrollable viewport.
 - Lets you click map nodes to open concept details in an overlay modal.
 
-Secondary entrypoint (list-style overview):
-- `azure_concept_map/html/index.html`
-
 Security-focused map entrypoint:
 - `azure_security_map_v3/map-viewer.html`
+
+Identity/governance-focused map entrypoint:
+- `azure_identity_governance_map_v1/map-viewer.html`
 
 ## Run locally
 
@@ -27,8 +27,8 @@ python3 -m http.server 8000
 
 Then open:
 - `http://localhost:8000/azure_concept_map/html/map-viewer.html` (ecosystem map)
-- `http://localhost:8000/azure_concept_map/html/index.html` (ecosystem list)
 - `http://localhost:8000/azure_security_map_v3/map-viewer.html` (security map)
+- `http://localhost:8000/azure_identity_governance_map_v1/map-viewer.html` (identity/governance map)
 
 ## Where key files live
 
@@ -41,3 +41,7 @@ Then open:
 - `azure_security_map_v3/map-viewer.js` - Mermaid rendering, node click handling, modal logic
 - `azure_security_map_v3/diagram.md` - Mermaid security graph source
 - `azure_security_map_v3/concepts/*.md` - markdown concept cards used as modal content
+- `azure_identity_governance_map_v1/map-viewer.html` - identity/governance map UI shell
+- `azure_identity_governance_map_v1/map-viewer.js` - Mermaid rendering, node click handling, modal logic
+- `azure_identity_governance_map_v1/diagram.md` - Mermaid identity/governance graph source
+- `azure_identity_governance_map_v1/concepts/*.md` - markdown concept cards used as modal content
