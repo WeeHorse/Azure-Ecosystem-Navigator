@@ -39,6 +39,7 @@ python3 -m http.server 8000
 
 Open:
 
+- `http://localhost:8000/` (redirects to main ecosystem map)
 - `http://localhost:8000/azure_concept_map/html/map-viewer.html`
 - `http://localhost:8000/azure_security_map_v3/map-viewer.html`
 - `http://localhost:8000/azure_identity_governance_map_v1/map-viewer.html`
