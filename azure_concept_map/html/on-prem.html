@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>On-premises Environment</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem auto; max-width: 900px; line-height: 1.6; padding: 0 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    a { color: #0b57d0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .muted { color: #555; }
+  </style>
+</head>
+<body>
+  <p><a href="index.html">← Back to overview</a></p>
+  <h1>On-premises Environment</h1>
+  <p class="muted"><strong>Type:</strong> Hybrid</p>
+  <div class="card">
+    <h2>Short explanation</h2>
+    <p>Local datacenter or corporate infrastructure outside Azure.</p>
+  </div>
+  <div class="card">
+    <h2>Why it matters</h2>
+    <p>Hybrid security depends on understanding that organizations often operate across local infrastructure and cloud services at the same time.</p>
+  </div>
+  <div class="card">
+    <h2>Common relations</h2>
+    <ul><li>Connects to Azure through VPN Gateway or ExpressRoute.</li><li>May integrate identity and monitoring with Azure services.</li><li>Can be represented and governed through Azure Arc.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Typical security or governance concerns</h2>
+    <ul><li>Different control models between on-prem and cloud create blind spots.</li><li>Legacy systems can weaken otherwise modern cloud security patterns.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Official references</h2>
+    <ul><li><a href="https://learn.microsoft.com/en-us/azure/azure-arc/overview" target="_blank" rel="noopener noreferrer">Azure Arc overview</a></li><li><a href="https://learn.microsoft.com/en-us/azure/vpn-gateway/" target="_blank" rel="noopener noreferrer">VPN Gateway documentation</a></li><li><a href="https://learn.microsoft.com/en-us/azure/expressroute/" target="_blank" rel="noopener noreferrer">ExpressRoute documentation</a></li></ul>
+  </div>
+</body>
+</html>

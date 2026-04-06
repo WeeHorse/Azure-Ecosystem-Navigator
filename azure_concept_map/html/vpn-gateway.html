@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VPN Gateway</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem auto; max-width: 900px; line-height: 1.6; padding: 0 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    a { color: #0b57d0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .muted { color: #555; }
+  </style>
+</head>
+<body>
+  <p><a href="index.html">← Back to overview</a></p>
+  <h1>VPN Gateway</h1>
+  <p class="muted"><strong>Type:</strong> Networking / Hybrid</p>
+  <div class="card">
+    <h2>Short explanation</h2>
+    <p>Encrypted connectivity between Azure VNets and on-premises or between VNets.</p>
+  </div>
+  <div class="card">
+    <h2>Why it matters</h2>
+    <p>VPN Gateway is a core hybrid connectivity concept when organizations need secure tunnels over the public internet.</p>
+  </div>
+  <div class="card">
+    <h2>Common relations</h2>
+    <ul><li>Connects on-premises networks to a VNet.</li><li>Supports site-to-site, point-to-site, and VNet-to-VNet patterns.</li><li>Uses a dedicated gateway subnet inside the VNet design.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Typical security or governance concerns</h2>
+    <ul><li>Weak tunnel design or key management can expose connectivity.</li><li>Bandwidth and resilience planning matter for business-critical traffic.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Official references</h2>
+    <ul><li><a href="https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways" target="_blank" rel="noopener noreferrer">About Azure VPN Gateway</a></li><li><a href="https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings" target="_blank" rel="noopener noreferrer">VPN Gateway settings</a></li></ul>
+  </div>
+</body>
+</html>

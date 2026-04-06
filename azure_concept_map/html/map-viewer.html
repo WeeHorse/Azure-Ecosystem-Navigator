@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azure Concept Map Viewer</title>
+    <link rel="stylesheet" href="../assets/map-viewer.css">
+  </head>
+
+  <body>
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Azure Ecosystem Navigator</p>
+        <h1>Concept Map</h1>
+        <p class="subtitle">Scroll horizontally to explore the full map, then click any node to open an in-page concept
+          brief.</p>
+        <p class="actions">
+          <a class="btn btn-primary" href="index.html">Concept List</a>
+          <a class="btn" href="../../azure_security_map_v3/map-viewer.html">Security Map</a>
+          <a class="btn" href="../azure-concepts-mermaid.md">Mermaid Source</a>
+        </p>
+      </div>
+    </header>
+
+    <main class="shell" id="app-shell">
+      <section class="map-card" aria-labelledby="map-heading">
+        <div class="map-header">
+          <h2 id="map-heading">Overview Map</h2>
+          <p>Desktop widths between 1000 and 1600px can pan across the full graph via horizontal scroll.</p>
+        </div>
+        <div class="scroll-frame" id="scroll-frame">
+          <div id="svg-host" class="svg-host" aria-live="polite">
+            <p class="loading">Loading map...</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="concept-modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+        <header class="modal-header">
+          <h2 id="modal-title">Concept</h2>
+          <button class="icon-btn" id="modal-close" type="button" aria-label="Close concept overlay">Close</button>
+        </header>
+        <div class="modal-content" id="modal-content">
+          <p class="loading">Loading concept...</p>
+        </div>
+      </section>
+    </div>
+
+    <script src="../assets/map-viewer.js"></script>
+  </body>
+
+</html>

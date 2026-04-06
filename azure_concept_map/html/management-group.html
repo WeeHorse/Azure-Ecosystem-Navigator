@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Management Group</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem auto; max-width: 900px; line-height: 1.6; padding: 0 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    a { color: #0b57d0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .muted { color: #555; }
+  </style>
+</head>
+<body>
+  <p><a href="index.html">← Back to overview</a></p>
+  <h1>Management Group</h1>
+  <p class="muted"><strong>Type:</strong> Governance</p>
+  <div class="card">
+    <h2>Short explanation</h2>
+    <p>Hierarchy level above subscriptions for consistent policy and access management.</p>
+  </div>
+  <div class="card">
+    <h2>Why it matters</h2>
+    <p>Management groups let you apply governance across multiple subscriptions instead of repeating the same settings manually.</p>
+  </div>
+  <div class="card">
+    <h2>Common relations</h2>
+    <ul><li>Contains subscriptions and possibly child management groups.</li><li>Provides a scope for Azure Policy and RBAC assignments.</li><li>Helps standardize large Azure estates.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Typical security or governance concerns</h2>
+    <ul><li>Overly complex hierarchies make responsibility unclear.</li><li>Broad assignments at high scope can unintentionally affect many subscriptions.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Official references</h2>
+    <ul><li><a href="https://learn.microsoft.com/en-us/azure/governance/management-groups/overview" target="_blank" rel="noopener noreferrer">Azure management groups overview</a></li><li><a href="https://learn.microsoft.com/en-us/azure/governance/management-groups/" target="_blank" rel="noopener noreferrer">Management groups documentation</a></li></ul>
+  </div>
+</body>
+</html>

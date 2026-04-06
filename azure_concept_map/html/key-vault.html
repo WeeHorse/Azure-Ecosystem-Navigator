@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Key Vault</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem auto; max-width: 900px; line-height: 1.6; padding: 0 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    a { color: #0b57d0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .muted { color: #555; }
+  </style>
+</head>
+<body>
+  <p><a href="index.html">← Back to overview</a></p>
+  <h1>Key Vault</h1>
+  <p class="muted"><strong>Type:</strong> Secrets / Security</p>
+  <div class="card">
+    <h2>Short explanation</h2>
+    <p>Secure store for secrets, keys, and certificates.</p>
+  </div>
+  <div class="card">
+    <h2>Why it matters</h2>
+    <p>Key Vault reduces the need to hardcode secrets and centralizes protection and auditing for sensitive material.</p>
+  </div>
+  <div class="card">
+    <h2>Common relations</h2>
+    <ul><li>Used by applications and managed identities.</li><li>Can be secured with Azure RBAC and networking controls.</li><li>Sends monitoring data into Azure Monitor logs.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Typical security or governance concerns</h2>
+    <ul><li>Secrets copied into code or configs bypass Key Vault entirely.</li><li>Too many principals with access increases leakage risk.</li><li>Public exposure or lax network rules weakens protection.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Official references</h2>
+    <ul><li><a href="https://learn.microsoft.com/en-us/azure/key-vault/general/overview" target="_blank" rel="noopener noreferrer">Azure Key Vault overview</a></li><li><a href="https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts" target="_blank" rel="noopener noreferrer">What is Azure Key Vault?</a></li><li><a href="https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-guide" target="_blank" rel="noopener noreferrer">Key Vault RBAC guide</a></li></ul>
+  </div>
+</body>
+</html>

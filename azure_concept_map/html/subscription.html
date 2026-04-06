@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subscription</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem auto; max-width: 900px; line-height: 1.6; padding: 0 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    a { color: #0b57d0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .muted { color: #555; }
+  </style>
+</head>
+<body>
+  <p><a href="index.html">← Back to overview</a></p>
+  <h1>Subscription</h1>
+  <p class="muted"><strong>Type:</strong> Governance</p>
+  <div class="card">
+    <h2>Short explanation</h2>
+    <p>Administrative and billing boundary that contains Azure resources.</p>
+  </div>
+  <div class="card">
+    <h2>Why it matters</h2>
+    <p>Subscriptions are a key scope in Azure. Cost control, access assignment, policy, and many operational boundaries are commonly organized here.</p>
+  </div>
+  <div class="card">
+    <h2>Common relations</h2>
+    <ul><li>Belongs under a management group hierarchy.</li><li>Contains resource groups and resources.</li><li>Can receive RBAC and Policy assignments.</li><li>Is often assessed by Defender for Cloud.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Typical security or governance concerns</h2>
+    <ul><li>Placing unrelated workloads in one subscription can blur ownership and cost tracking.</li><li>Too much privilege at subscription scope is a common security mistake.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Official references</h2>
+    <ul><li><a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview" target="_blank" rel="noopener noreferrer">Azure Resource Manager overview</a></li><li><a href="https://learn.microsoft.com/en-us/azure/governance/management-groups/overview" target="_blank" rel="noopener noreferrer">Management groups overview</a></li></ul>
+  </div>
+</body>
+</html>

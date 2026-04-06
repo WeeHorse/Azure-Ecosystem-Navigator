@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Virtual Network (VNet)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem auto; max-width: 900px; line-height: 1.6; padding: 0 1rem; }
+    .card { border: 1px solid #ddd; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }
+    a { color: #0b57d0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .muted { color: #555; }
+  </style>
+</head>
+<body>
+  <p><a href="index.html">← Back to overview</a></p>
+  <h1>Virtual Network (VNet)</h1>
+  <p class="muted"><strong>Type:</strong> Networking</p>
+  <div class="card">
+    <h2>Short explanation</h2>
+    <p>Fundamental private networking construct for Azure workloads.</p>
+  </div>
+  <div class="card">
+    <h2>Why it matters</h2>
+    <p>VNets create the network boundary in Azure that lets workloads communicate privately and connect to on-premises networks.</p>
+  </div>
+  <div class="card">
+    <h2>Common relations</h2>
+    <ul><li>Contains subnets.</li><li>Connects to on-premises networks through VPN Gateway or ExpressRoute.</li><li>Hosts workloads such as VMs, private endpoints, and some platform-integrated services.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Typical security or governance concerns</h2>
+    <ul><li>Poor subnet design complicates segmentation.</li><li>Excessive public exposure undermines isolation.</li><li>Weak routing and filtering patterns can widen attack paths.</li></ul>
+  </div>
+  <div class="card">
+    <h2>Official references</h2>
+    <ul><li><a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview" target="_blank" rel="noopener noreferrer">Azure Virtual Network overview</a></li><li><a href="https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-virtual-networks/" target="_blank" rel="noopener noreferrer">Introduction to Azure Virtual Networks</a></li></ul>
+  </div>
+</body>
+</html>
