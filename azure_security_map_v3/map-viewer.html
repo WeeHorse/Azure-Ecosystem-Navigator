@@ -15,18 +15,27 @@
         <h1>Security Map</h1>
         <p class="subtitle">Scroll horizontally to inspect the security-focused topology, then click any node to open
           the concept brief.</p>
-        <p class="actions">
-          <a class="btn btn-primary" href="README.md">Security Docs</a>
-          <a class="btn" href="diagram.md">Mermaid Source</a>
-          <a class="btn" href="../azure_concept_map/html/map-viewer.html">Main Map</a>
-        </p>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="site-menu">
+            <li><a class="btn" href="../azure_concept_map/html/map-viewer.html">Main Map</a></li>
+            <li><a class="btn" href="../azure_concept_map/html/index.html">Concept List</a></li>
+            <li><a class="btn is-active" href="map-viewer.html" aria-current="page">Security Map</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
 
     <main class="shell" id="app-shell">
       <section class="map-card" aria-labelledby="map-heading">
         <div class="map-header">
-          <h2 id="map-heading">Security Overview Map</h2>
+          <div class="map-header-row">
+            <h2 id="map-heading">Security Overview Map</h2>
+            <div class="zoom-controls" aria-label="Map zoom controls">
+              <button class="zoom-btn" id="zoom-out" type="button" aria-label="Zoom out">-</button>
+              <button class="zoom-btn zoom-reset" id="zoom-reset" type="button" aria-label="Reset zoom to fit">100%</button>
+              <button class="zoom-btn" id="zoom-in" type="button" aria-label="Zoom in">+</button>
+            </div>
+          </div>
           <p>Desktop widths between 1000 and 1600px can pan across the full graph via horizontal scroll.</p>
         </div>
         <div class="scroll-frame" id="scroll-frame">

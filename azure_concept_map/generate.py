@@ -503,25 +503,42 @@ html_index = f"""<!doctype html>
   <meta charset=\"utf-8\">
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
   <title>Azure Concept Map</title>
+    <link rel=\"stylesheet\" href=\"../assets/map-viewer.css\">
   <style>
-    body {{ font-family: Arial, sans-serif; margin: 2rem auto; max-width: 1100px; line-height: 1.6; padding: 0 1rem; }}
-    .card {{ border: 1px solid #ddd; border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; }}
+        body {{ margin: 0; line-height: 1.6; }}
+        .list-shell {{ max-width: 1160px; margin: 0 auto; padding: 0 1.25rem 2.2rem; }}
+        .card {{ border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.25rem; margin: 1rem 0; background: #fff; box-shadow: var(--shadow); }}
     img {{ max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 12px; }}
-    a {{ color: #0b57d0; text-decoration: none; }}
-    a:hover {{ text-decoration: underline; }}
+        .card a:not(.btn) {{ color: #0b57d0; }}
   </style>
 </head>
 <body>
-  <h1>Azure Concept Map</h1>
-  <div class=\"card\">
-    <p>This is a starter map for Azure security and hybrid environments. Open the SVG below in a browser or click the concept pages in the list.</p>
-        <p><a href=\"map-viewer.html\">Open interactive map viewer (scroll + modal)</a></p>
-    <p><a href=\"../azure-concepts-clickable.svg\">Open clickable SVG</a></p>
-  </div>
-  <div class=\"card\">
-    <h2>Concept cards</h2>
-    <ul>{cards}</ul>
-  </div>
+    <header class=\"hero\">
+        <div class=\"hero-inner\">
+            <p class=\"eyebrow\">Azure Ecosystem Navigator</p>
+            <h1>Concept List</h1>
+            <p class=\"subtitle\">Browse all concept cards directly, or jump to either map view from the same fixed menu.</p>
+            <nav class=\"site-nav\" aria-label=\"Primary\">
+                <ul class=\"site-menu\">
+                    <li><a class=\"btn\" href=\"map-viewer.html\">Main Map</a></li>
+                    <li><a class=\"btn is-active\" href=\"index.html\" aria-current=\"page\">Concept List</a></li>
+                    <li><a class=\"btn\" href=\"../../azure_security_map_v3/map-viewer.html\">Security Map</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class=\"list-shell\">
+        <div class=\"card\">
+            <p>This is a starter map for Azure security and hybrid environments. Open the SVG below in a browser or click the concept pages in the list.</p>
+            <p><a href=\"map-viewer.html\">Open interactive map viewer (scroll + modal)</a></p>
+            <p><a href=\"../azure-concepts-clickable.svg\">Open clickable SVG</a></p>
+        </div>
+        <div class=\"card\">
+            <h2>Concept cards</h2>
+            <ul>{cards}</ul>
+        </div>
+    </main>
 </body>
 </html>
 """

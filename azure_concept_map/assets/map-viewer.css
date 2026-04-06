@@ -60,6 +60,23 @@ h1 {
   gap: 0.7rem;
 }
 
+.site-nav {
+  margin: 1.2rem 0 0;
+}
+
+.site-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.site-menu li {
+  margin: 0;
+}
+
 .btn {
   display: inline-block;
   text-decoration: none;
@@ -72,6 +89,12 @@ h1 {
 }
 
 .btn-primary {
+  background: var(--accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.btn.is-active {
   background: var(--accent);
   border-color: transparent;
   color: #fff;
@@ -96,6 +119,13 @@ h1 {
   border-bottom: 1px solid #e8ecef;
 }
 
+.map-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
 .map-header h2 {
   margin: 0;
   font-size: 1.2rem;
@@ -106,6 +136,35 @@ h1 {
   color: var(--muted);
 }
 
+.zoom-controls {
+  display: inline-flex;
+  gap: 0.45rem;
+}
+
+.zoom-btn {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.zoom-btn.zoom-reset {
+  width: auto;
+  min-width: 3rem;
+  padding: 0 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.zoom-btn:hover {
+  border-color: #a7b8c4;
+}
+
 .scroll-frame {
   overflow-x: auto;
   overflow-y: hidden;
@@ -114,7 +173,7 @@ h1 {
 }
 
 .svg-host {
-  min-width: 1689px;
+  min-width: 100%;
   width: max-content;
   background: #fff;
   border-radius: 10px;
@@ -220,10 +279,6 @@ h1 {
 }
 
 @media (max-width: 880px) {
-  .svg-host {
-    min-width: 1580px;
-  }
-
   .modal-panel {
     margin: 2vh auto;
     width: calc(100vw - 1rem);

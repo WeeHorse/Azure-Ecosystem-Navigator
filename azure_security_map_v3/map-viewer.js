@@ -9,9 +9,16 @@ import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.mi
   const modalTitle = document.getElementById("modal-title");
   const modalContent = document.getElementById("modal-content");
   const closeButton = document.getElementById("modal-close");
+  const scrollFrame = document.getElementById("scroll-frame");
+  const zoomInButton = document.getElementById("zoom-in");
+  const zoomOutButton = document.getElementById("zoom-out");
+  const zoomResetButton = document.getElementById("zoom-reset");
   const XLINK_NS = "http://www.w3.org/1999/xlink";
 
   let lastFocusedElement = null;
+  let currentZoom = 1;
+  let fitScale = 1;
+  let baseWidth = 0;
 
   function escapeHtml(value) {
     return value
@@ -122,6 +129,56 @@ import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.mi
       .join(" ");
   }
 
+  function resolvedSvgWidth(svg) {
+    if (svg.viewBox && svg.viewBox.baseVal && svg.viewBox.baseVal.width) {
+      return svg.viewBox.baseVal.width;
+    }
+    const parsed = Number.parseFloat(svg.getAttribute("width") || "0");
+    if (Number.isFinite(parsed) && parsed > 0) {
+      return parsed;
+    }
+    return Math.max(1, svg.getBoundingClientRect().width);
+  }
+
+  function applyZoom(svg) {
+    const scale = fitScale * currentZoom;
+    const scaledWidth = Math.max(1, baseWidth * scale);
+    svg.style.width = `${scaledWidth}px`;
+    svg.style.height = "auto";
+    zoomOutButton.disabled = currentZoom <= 0.401;
+    zoomInButton.disabled = currentZoom >= 5.999;
+    zoomResetButton.disabled = Math.abs(currentZoom - 1) < 0.001;
+  }
+
+  function updateFitScale(svg) {
+    const frameWidth = Math.max(1, scrollFrame.clientWidth - 24);
+    fitScale = frameWidth / baseWidth;
+    applyZoom(svg);
+  }
+
+  function setupZoom(svg) {
+    baseWidth = resolvedSvgWidth(svg);
+    currentZoom = 1;
+    updateFitScale(svg);
+
+    zoomInButton.addEventListener("click", () => {
+      currentZoom = Math.min(currentZoom * 1.2, 6);
+      applyZoom(svg);
+    });
+
+    zoomOutButton.addEventListener("click", () => {
+      currentZoom = Math.max(currentZoom / 1.2, 0.4);
+      applyZoom(svg);
+    });
+
+    zoomResetButton.addEventListener("click", () => {
+      currentZoom = 1;
+      applyZoom(svg);
+    });
+
+    window.addEventListener("resize", () => updateFitScale(svg));
+  }
+
   async function loadSecurityMap() {
     mermaid.initialize({
       startOnLoad: false,
@@ -147,6 +204,8 @@ import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.mi
 
     svg.setAttribute("aria-label", "Azure security concept map overview");
     svg.setAttribute("role", "img");
+
+    setupZoom(svg);
 
     const links = svg.querySelectorAll("a");
     links.forEach((linkNode) => {
