@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azure Concepts</title>
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --panel: #ffffff;
+        --text: #1b2a3a;
+        --muted: #5d6b79;
+        --link: #0a66c2;
+        --border: #d8e1ea;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top left, #e9f2ff, var(--bg) 45%);
+      }
+
+      .wrap {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(12, 40, 72, 0.08);
+        padding: 1.5rem 1.75rem;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      p {
+        color: var(--muted);
+      }
+
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      ul {
+        padding-left: 1.25rem;
+      }
+
+      .error {
+        border-left: 4px solid #c53030;
+        background: #fff5f5;
+        color: #7f1d1d;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+      }
+
+      .meta {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--link);
+        text-decoration: none;
+        margin-bottom: 1.25rem;
+        padding: 0.35rem 0.75rem 0.35rem 0.5rem;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        background: var(--bg);
+        transition: background 0.15s;
+      }
+
+      .back-link:hover {
+        background: #e0ecff;
+        text-decoration: none;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <article id="content">Loading content...</article>
+        <p class="meta" id="meta"></p>
+      </section>
+    </main>
+
+    <script>
+      const INDEX = "./azure-concepts.md";
+
+      // Resolve a relative path against a base path (both relative to the server root).
+      function resolvePath(base, href) {
+        // If already absolute or a full URL, leave it alone.
+        if (/^(https?:|\/)/i.test(href)) return href;
+        const baseDir = base.replace(/[^/]+$/, "");
+        const parts = (baseDir + href).split("/");
+        const resolved = [];
+        for (const p of parts) {
+          if (p === "..") resolved.pop();
+          else if (p !== ".") resolved.push(p);
+        }
+        return resolved.join("/");
+      }
+
+      async function render(mdPath) {
+        const target = document.getElementById("content");
+        const meta = document.getElementById("meta");
+        target.innerHTML = "Loading\u2026";
+        meta.innerHTML = "";
+
+        try {
+          const response = await fetch("./" + mdPath, { cache: "no-store" });
+          if (!response.ok) throw new Error(`Unable to load ${mdPath} (${response.status})`);
+          const markdown = await response.text();
+          target.innerHTML = marked.parse(markdown);
+
+          // Intercept all .md links so they navigate within the page.
+          target.querySelectorAll("a[href]").forEach(a => {
+            const href = a.getAttribute("href");
+            if (href && href.endsWith(".md") && !/^https?:/i.test(href)) {
+              a.addEventListener("click", e => {
+                e.preventDefault();
+                const resolved = resolvePath(mdPath, href);
+                navigate(resolved);
+              });
+            }
+          });
+
+          const isIndex = (mdPath === INDEX.replace("./", ""));
+          if (isIndex) {
+            document.title = "Azure Concepts";
+            meta.innerHTML = `Source: <a href="./${mdPath}">${mdPath}</a>`;
+          } else {
+            document.title = deriveTitle(target) + " — Azure Concepts";
+            meta.innerHTML = `
+              <a class="back-link" href="#" id="back-btn">&#8592; Back to menu</a>
+              <br>Source: <a href="./${mdPath}">${mdPath}</a>`;
+            document.getElementById("back-btn").addEventListener("click", e => {
+              e.preventDefault();
+              navigate(INDEX.replace("./", ""));
+            });
+          }
+        } catch (err) {
+          target.innerHTML = `<div class="error">${err.message}. If you opened this page as a local file, serve the folder with a local web server so fetch can read markdown files.</div>`;
+        }
+      }
+
+      function deriveTitle(container) {
+        const h = container.querySelector("h1,h2,h3");
+        return h ? h.textContent.trim() : "Concept";
+      }
+
+      function navigate(mdPath) {
+        // Normalise: strip leading "./"
+        const clean = mdPath.replace(/^\.\//, "");
+        window.location.hash = clean;
+      }
+
+      function routeFromHash() {
+        const hash = window.location.hash.slice(1); // strip "#"
+        const mdPath = (hash && hash.endsWith(".md")) ? hash : INDEX.replace("./", "");
+        render(mdPath);
+      }
+
+      window.addEventListener("hashchange", routeFromHash);
+      routeFromHash();
+    </script>
+  </body>
+
+</html>

@@ -21,6 +21,8 @@ All map views now share the same behavior:
 - `azure_concept_map/html/map-viewer.html` (main ecosystem map)
 - `azure_security_map_v3/map-viewer.html` (security map)
 - `azure_identity_governance_map_v1/map-viewer.html` (identity & governance map)
+- `azure-concepts.md` (structured index of all concept articles)
+- `azure-concepts.html` (browser-rendered view of `azure-concepts.md`)
 
 Notes:
 
@@ -43,6 +45,7 @@ Open:
 - `http://localhost:8000/azure_concept_map/html/map-viewer.html`
 - `http://localhost:8000/azure_security_map_v3/map-viewer.html`
 - `http://localhost:8000/azure_identity_governance_map_v1/map-viewer.html`
+- `http://localhost:8000/azure-concepts.html`
 
 ## Key Files
 

@@ -13,6 +13,11 @@ This package gives you a first clickable concept map for **Azure security and hy
 
 ## How to use
 
+### Concept Index
+
+- Markdown index: [azure-concepts.md](azure-concepts.md)
+- Browser view: [azure-concepts.html](azure-concepts.html)
+
 ### Fastest
 Open `azure-concepts-clickable.svg` in a browser and click nodes.
 
